@@ -32,14 +32,16 @@ export default function MoviesPage(props) {
 
       <Modal movieDetails={movieDetails} />
 
-      <section className="d-flex flex-column align-items-center p-5">
-        {props.movies.map((m, index) => {
-          return (
-            <section key={index} onClick={() => setMovie(m)}>
-              <ShowCard imgUrl={m.images["Poster Art"].url} title={m.title} />
-            </section>
-          );
-        })}
+      <section className="container py-5">
+        <div className="row">
+          {props.movies.map((m, index) => {
+            return (
+              <section className="col" key={index} onClick={() => setMovie(m)}>
+                <ShowCard imgUrl={m.images["Poster Art"].url} title={m.title} />
+              </section>
+            );
+          })}
+        </div>
       </section>
     </React.Fragment>
   );

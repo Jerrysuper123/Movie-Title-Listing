@@ -32,19 +32,22 @@ export default function SeriesPage(props) {
 
       <Modal movieDetails={seriesDetails} />
 
-      <section className="d-flex flex-column align-items-center p-5">
-        {props.series.map((m, index) => {
-          return (
-            <section
-              key={index}
-              onClick={() => {
-                setSeries(m);
-              }}
-            >
-              <ShowCard imgUrl={m.images["Poster Art"].url} title={m.title} />
-            </section>
-          );
-        })}
+      <section className="container py-5">
+        <div className="row">
+          {props.series.map((m, index) => {
+            return (
+              <section
+                className="col"
+                key={index}
+                onClick={() => {
+                  setSeries(m);
+                }}
+              >
+                <ShowCard imgUrl={m.images["Poster Art"].url} title={m.title} />
+              </section>
+            );
+          })}
+        </div>
       </section>
     </React.Fragment>
   );
