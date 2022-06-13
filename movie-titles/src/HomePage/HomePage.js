@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css";
 import GenreCard from "../Components/GenreCard/GenreCard";
 import { Link } from "react-router-dom";
 
@@ -11,14 +12,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="d-flex flex-column align-items-center p-5">
-        <Link to="/series">
-          <GenreCard title="SERIES" bodyText="Popular Series" />
-        </Link>
+      <section className="homePageBody d-flex flex-column flex-md-row py-5 container mb-5">
+        <div className="me-4">
+          <Link to="/series">
+            <GenreCard title="SERIES" bodyText="Popular Series" />
+          </Link>
+        </div>
 
-        <Link to="/movies">
-          <GenreCard title="MOVIES" bodyText="Popular Movies" />
-        </Link>
+        <div className="me-4">
+          <Link to="/movies">
+            <GenreCard title="MOVIES" bodyText="Popular Movies" />
+          </Link>
+        </div>
       </section>
     </React.Fragment>
   );

@@ -9,7 +9,7 @@ export default function GenreCard(props) {
         <img src={clapperboard} className="card-img-top genreImg" alt="movie" />
       </section>
       <section className="text-center genreText">
-        <h1>{props.title}</h1>
+        <h2>{props.title}</h2>
       </section>
 
       <p className="card-text mt-2">{props.bodyText}</p>

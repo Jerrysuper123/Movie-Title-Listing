@@ -9,7 +9,7 @@
 
 .genreCard:hover {
     cursor: pointer;
-    transform: s cale(1.02);
+    transform: scale(1.02);
 }
 
 .genreInnerCard {
@@ -23,7 +23,7 @@
 
 .genreText {
     position: absolute;
-    top: 5.7rem;
-    left: 1.2rem;
+    top: 6rem;
+    left: 2rem;
     color: white;
 }
