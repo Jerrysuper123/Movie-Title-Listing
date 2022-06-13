@@ -15,7 +15,10 @@ export default function MoviesPage(props) {
 
   const setMovie = (m) => {
     setMovieDetails(m);
-    modalBtnElement.current.click();
+    // set a delay for setMovieDetails to update the modal before display the modal
+    setTimeout(() => {
+      modalBtnElement.current.click();
+    }, 50);
   };
 
   return (

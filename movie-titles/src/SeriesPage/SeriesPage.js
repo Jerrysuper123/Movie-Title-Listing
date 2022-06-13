@@ -15,7 +15,9 @@ export default function SeriesPage(props) {
 
   const setSeries = (m) => {
     setSeriesDetails(m);
-    modalBtnElement.current.click();
+    setTimeout(() => {
+      modalBtnElement.current.click();
+    }, 50);
   };
 
   return (

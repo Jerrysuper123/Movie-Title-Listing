@@ -23,9 +23,17 @@
     color: white !important;
 }
 
+.navbar-brand:hover {
+    transform: scale(1.02);
+}
+
 .logInBtn {
     color: white !important;
     font-weight: 500 !important;
+}
+
+.logInBtn:hover {
+    transform: scale(1.02);
 }
 
 .trialBtn {
@@ -33,6 +41,10 @@
     font-weight: 500 !important;
     color: white !important;
     width: 11rem;
+}
+
+.trialBtn:hover {
+    transform: scale(1.02);
 }
 
 .navIntro {
