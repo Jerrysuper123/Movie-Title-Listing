@@ -38,9 +38,8 @@ function App() {
           <Route path="/series" element={<SeriesPage series={series} />} />
           <Route path="/movies" element={<MoviesPage movies={movies} />} />
         </Routes>
+        <Footer />
       </Router>
-
-      <Footer />
     </React.Fragment>
   );
 }

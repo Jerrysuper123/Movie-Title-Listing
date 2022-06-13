@@ -5,8 +5,15 @@
 
 .footerHeader > span {
     /* border-left: 1px solid white; */
-    margin-right: 0.5rem;
+    /* margin-right: 0.5rem; */
     /* padding-left: 0.8rem; */
+    text-align: center;
+}
+
+@media screen and (max-width: 780px) {
+    .borderRight {
+        border-right: none !important;
+    }
 }
 
 .socialMediaIcon {
@@ -20,4 +27,18 @@
 
 .copyRight {
     font-size: 0.9rem;
+}
+
+.borderRight {
+    border-right: 0.5px solid white;
+}
+
+.footerHome > a {
+    text-decoration: none;
+    color: white;
+}
+
+.footerHeader:hover {
+    cursor: pointer;
+    transform: scale(1.01);
 }
