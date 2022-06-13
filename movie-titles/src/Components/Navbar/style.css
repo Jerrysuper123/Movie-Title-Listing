@@ -1,0 +1,43 @@
+.html {
+    font-weight: 600 !important;
+}
+
+.navbar {
+    background-color: rgb(38, 154, 255) !important;
+    height: 4rem;
+}
+
+.navbar-collapse {
+    background-color: rgb(38, 154, 255) !important;
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: white !important;
+}
+
+.logInBtn {
+    color: white !important;
+    font-weight: 500 !important;
+}
+
+.trialBtn {
+    background-color: rgb(52, 52, 52);
+    font-weight: 500 !important;
+    color: white !important;
+    width: 11rem;
+}
+
+.navIntro {
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 500;
+    padding: 0.7rem;
+    background-color: rgb(52, 52, 52);
+}

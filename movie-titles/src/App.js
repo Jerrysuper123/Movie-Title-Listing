@@ -1,4 +1,7 @@
 import "./App.css";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 import NavBar from "./Components/Navbar/NavBar";
 import ShowCard from "./Components/showCard/showCard";
 import Footer from "./Components/Footer/Footer";
@@ -9,13 +12,31 @@ import MoviesPage from "./MoviesPage/MoviesPage";
 
 function App() {
   return (
-    <div className="container">
+    <React.Fragment>
       <NavBar />
-      <HomePage />
-      <SeriesPage />
-      <MoviesPage />
+      <Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/series">series page</Link>
+            </li>
+            <li>
+              <Link to="/movies">movies page</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/series" element={<SeriesPage />} />
+          <Route path="/movies" element={<MoviesPage />} />
+        </Routes>
+      </Router>
+
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }
 
