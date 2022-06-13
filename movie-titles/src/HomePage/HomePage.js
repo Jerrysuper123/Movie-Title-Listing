@@ -9,11 +9,11 @@ export default function HomePage() {
   const [loading, setLoading] = useState(true);
 
   // mimic componentdidMount
-  //use setTimeout only to demo the spinner, do not push this code into production
+  //use setTimeout only to demo the spinner, do not push this code into
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 100);
+    }, 200);
   }, []);
 
   return (
