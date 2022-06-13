@@ -1,8 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ShowCard from "../Components/showCard/showCard";
 import Modal from "../Components/Modal/Modal";
+import Spinner from "../Components/Spinner/Spinner";
 
 export default function SeriesPage(props) {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   const [seriesDetails, setSeriesDetails] = useState({});
   const modalBtnElement = useRef(null);
 
@@ -31,24 +38,30 @@ export default function SeriesPage(props) {
       </button>
 
       <Modal movieDetails={seriesDetails} />
-
-      <section className="container py-5">
-        <div className="row">
-          {props.series.map((m, index) => {
-            return (
-              <section
-                className="col"
-                key={index}
-                onClick={() => {
-                  setSeries(m);
-                }}
-              >
-                <ShowCard imgUrl={m.images["Poster Art"].url} title={m.title} />
-              </section>
-            );
-          })}
-        </div>
-      </section>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <section className="container py-5">
+          <div className="row">
+            {props.series.map((m, index) => {
+              return (
+                <section
+                  className="col"
+                  key={index}
+                  onClick={() => {
+                    setSeries(m);
+                  }}
+                >
+                  <ShowCard
+                    imgUrl={m.images["Poster Art"].url}
+                    title={m.title}
+                  />
+                </section>
+              );
+            })}
+          </div>
+        </section>
+      )}
     </React.Fragment>
   );
 }

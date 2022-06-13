@@ -1,11 +1,10 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import sampleData from "./localData/sample.json";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import axios from "axios";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Spinner from "./Components/Spinner/Spinner";
 
 import NavBar from "./Components/Navbar/NavBar";
-import ShowCard from "./Components/showCard/showCard";
 import Footer from "./Components/Footer/Footer";
 
 import HomePage from "./HomePage/HomePage";
@@ -31,6 +30,7 @@ function App() {
 
   return (
     <React.Fragment>
+      {/* <Spinner /> */}
       <Router>
         <NavBar />
         <Routes>
