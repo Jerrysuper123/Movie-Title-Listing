@@ -16,9 +16,23 @@ export default function Modal(props) {
   const [yearFacts, setYearFacts] = useState("");
 
   const getReleaseYearFacts = async (releaseYear) => {
-    //API Format: http://numbersapi.com/1969/year
-    let response = await axios.get(`http://numbersapi.com/${releaseYear}/year`);
-    setYearFacts(response.data);
+    try {
+      let response = await axios.get(
+        `http://numbersapi.com/${releaseYear}/year`
+      );
+      // display API failure to user if status code is not 200
+      if (response.status === 200) {
+        setYearFacts(response.data);
+      } else {
+        setYearFacts(
+          "Warning: unable to retrieve interest facts about the year, API Failed!"
+        );
+      }
+    } catch (e) {
+      setYearFacts(
+        "Warning: unable to retrieve interest facts about the year, API Failed!"
+      );
+    }
   };
 
   useEffect(() => {
