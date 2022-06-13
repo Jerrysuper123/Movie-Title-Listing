@@ -3,6 +3,10 @@
     position: relative;
 }
 
+.genreCard > p {
+    color: black !important;
+}
+
 .genreCard:hover {
     cursor: pointer;
     transform: s cale(1.02);

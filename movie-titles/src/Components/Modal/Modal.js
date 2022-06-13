@@ -4,12 +4,11 @@ import axios from "axios";
 import { useEffect } from "react";
 
 export default function Modal(props) {
-  //http://numbersapi.com/1969/year
   const [yearFacts, setYearFacts] = useState("");
 
   const getReleaseYearFacts = async (releaseYear) => {
+    //API Format: http://numbersapi.com/1969/year
     let response = await axios.get(`http://numbersapi.com/${releaseYear}/year`);
-    // console.log(response.data);
     setYearFacts(response.data);
   };
 

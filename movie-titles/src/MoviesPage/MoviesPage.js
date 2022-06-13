@@ -4,25 +4,21 @@ import Modal from "../Components/Modal/Modal";
 
 export default function MoviesPage(props) {
   const [movieDetails, setMovieDetails] = useState({});
-  // const [showModal, setShowModal] = useState("none");
   const modalBtnElement = useRef(null);
 
   const setMovie = (m) => {
     setMovieDetails(m);
     modalBtnElement.current.click();
-    // show modal visible
-    // setShowModal("block");
   };
 
   return (
     <React.Fragment>
-      {/* {movieDetails.title ? (
-        <Modal
-          movieDetails={movieDetails}
-          showModal={showModal}
-          setShowModal={setShowModal}
-        />
-      ) : null} */}
+      <section className="navIntro">
+        <div className="container">
+          <span>Popular Movies</span>
+        </div>
+      </section>
+
       <button
         type="button"
         className="btn btn-primary"
@@ -31,11 +27,12 @@ export default function MoviesPage(props) {
         ref={modalBtnElement}
         style={{ display: "none" }}
       >
-        Launch demo modal
+        Launch movie details
       </button>
+
       <Modal movieDetails={movieDetails} />
 
-      <section className="d-flex flex-column align-items-center">
+      <section className="d-flex flex-column align-items-center p-5">
         {props.movies.map((m, index) => {
           return (
             <section key={index} onClick={() => setMovie(m)}>

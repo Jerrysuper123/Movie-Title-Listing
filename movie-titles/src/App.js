@@ -31,29 +31,15 @@ function App() {
 
   return (
     <React.Fragment>
-      <NavBar />
-      <main className="bodyContent">
-        <Router>
-          {/* <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/series">series page</Link>
-              </li>
-              <li>
-                <Link to="/movies">movies page</Link>
-              </li>
-            </ul>
-          </nav> */}
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/series" element={<SeriesPage series={series} />} />
-            <Route path="/movies" element={<MoviesPage movies={movies} />} />
-          </Routes>
-        </Router>
-      </main>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/series" element={<SeriesPage series={series} />} />
+          <Route path="/movies" element={<MoviesPage movies={movies} />} />
+        </Routes>
+      </Router>
+
       <Footer />
     </React.Fragment>
   );

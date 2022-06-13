@@ -1,14 +1,15 @@
 import React from "react";
 import "./style.css";
+import { Router, Link } from "react-router-dom";
 
 export default function NavBar() {
   return (
     <React.Fragment>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid navbarBgColor">
-          <a className="navbar-brand ms-5" href="#">
-            DEMO Streaming
-          </a>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
+        <div className="container navbarBgColor">
+          <div className="navbar-brand">
+            <Link to="/">DEMO Streaming</Link>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -37,9 +38,6 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
-      <section className="navIntro">
-        <span className="ms-5">Popular Series</span>
-      </section>
     </React.Fragment>
   );
 }

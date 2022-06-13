@@ -3,21 +3,22 @@
 }
 
 .navbar {
-    background-color: rgb(38, 154, 255) !important;
+    background-color: #0b77e3 !important;
     height: 4rem;
 }
 
 .navbar-collapse {
-    background-color: rgb(38, 154, 255) !important;
+    background-color: #0b77e3 !important;
     width: 100%;
+    z-index: 3;
 }
 
 .navbar-toggler {
     border: none !important;
 }
 
-.navbar-brand {
-    font-size: 1.6rem;
+.navbar-brand > a {
+    font-size: 1.9rem;
     font-weight: 500;
     color: white !important;
 }
@@ -40,4 +41,8 @@
     font-weight: 500;
     padding: 0.7rem;
     background-color: rgb(52, 52, 52);
+}
+
+a {
+    text-decoration: none;
 }

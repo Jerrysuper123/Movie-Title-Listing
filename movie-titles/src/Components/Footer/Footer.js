@@ -7,16 +7,16 @@ export default function Footer() {
     <footer className="page-footer font-small blue p-4 text-center">
       <main className="ms-5 me-5">
         <section className="footerHeader d-flex flex-column ">
-          <span>Home</span>
-          <span>Terms and Conditions</span>
-          <span>Privacy Policy</span>
-          <span>Collection</span>
-          <span>Help</span>
+          <span>Home | </span>
+          <span>Terms and Conditions | </span>
+          <span>Privacy Policy | </span>
+          <span>Collection Statement | </span>
+          <span>Help | </span>
           <span>Manage Account</span>
         </section>
 
-        <section className="mt-3">
-          <p>Copyright @2022 DEMO Streaming. All rights reserved. </p>
+        <section className="mt-3 copyRight">
+          <p>Copyright @2016 DEMO Streaming All Rights Reserved. </p>
         </section>
 
         <section className="text-white">
