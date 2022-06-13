@@ -38,6 +38,7 @@ export default function SeriesPage(props) {
       </button>
 
       <Modal movieDetails={seriesDetails} />
+
       {loading ? (
         <Spinner />
       ) : (

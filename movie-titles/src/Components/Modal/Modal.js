@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import "./style.css";
 import axios from "axios";
 import { useEffect } from "react";
+import Spinner from "../Spinner/Spinner";
 
 export default function Modal(props) {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   const [yearFacts, setYearFacts] = useState("");
 
   const getReleaseYearFacts = async (releaseYear) => {
@@ -18,7 +25,9 @@ export default function Modal(props) {
 
   return (
     <React.Fragment>
-      {props.movieDetails.title ? (
+      {!props.movieDetails.title || loading ? (
+        <Spinner />
+      ) : (
         <div
           className="modal fade"
           id="exampleModal"
@@ -67,7 +76,7 @@ export default function Modal(props) {
             </div>
           </div>
         </div>
-      ) : null}
+      )}
     </React.Fragment>
   );
 }
