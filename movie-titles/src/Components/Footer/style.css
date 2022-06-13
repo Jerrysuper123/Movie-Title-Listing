@@ -1,0 +1,19 @@
+.page-footer {
+    background-color: rgb(41, 41, 41) !important;
+    color: white;
+}
+
+.footerHeader > span {
+    /* border-left: 1px solid white; */
+    /* padding-right: 0.8rem; */
+    /* padding-left: 0.8rem; */
+}
+
+.socialMediaIcon {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.appStoreImg {
+    height: 2rem;
+}
