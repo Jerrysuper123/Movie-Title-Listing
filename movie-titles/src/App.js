@@ -34,7 +34,7 @@ function App() {
       <NavBar />
       <main className="bodyContent">
         <Router>
-          <nav>
+          {/* <nav>
             <ul>
               <li>
                 <Link to="/">Home</Link>
@@ -46,7 +46,7 @@ function App() {
                 <Link to="/movies">movies page</Link>
               </li>
             </ul>
-          </nav>
+          </nav> */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/series" element={<SeriesPage series={series} />} />

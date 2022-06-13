@@ -1,53 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
+import "./style.css";
+import axios from "axios";
+import { useEffect } from "react";
 
-export default function Modal() {
+export default function Modal(props) {
+  //http://numbersapi.com/1969/year
+  const [yearFacts, setYearFacts] = useState("");
+
+  const getReleaseYearFacts = async (releaseYear) => {
+    let response = await axios.get(`http://numbersapi.com/${releaseYear}/year`);
+    // console.log(response.data);
+    setYearFacts(response.data);
+  };
+
+  useEffect(() => {
+    getReleaseYearFacts(props.movieDetails.releaseYear);
+  }, [props.movieDetails.releaseYear]);
+
   return (
     <React.Fragment>
-      {/* <button
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Launch demo modal
-      </button> */}
+      {props.movieDetails.title ? (
+        <div
+          className="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">
+                  {props.movieDetails.title}
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div className="modal-body d-flex flex-column align-items-center">
+                <p>{props.movieDetails.description}</p>
+                <p>type: {props.movieDetails.programType}</p>
+                <p>release year: {props.movieDetails.releaseYear}</p>
+                <p className="yearFacts">{yearFacts}</p>
+                <div className="moviePoster">
+                  {props.movieDetails.images["Poster Art"].url ? (
+                    <img
+                      src={props.movieDetails.images["Poster Art"].url}
+                      alt="modal"
+                      style={{ width: "14rem" }}
+                    />
+                  ) : null}
+                </div>
+              </div>
 
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabindex="-1"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
-              </h5>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">...</div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : null}
     </React.Fragment>
   );
 }
