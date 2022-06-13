@@ -4,9 +4,17 @@ import ShowCard from "../Components/showCard/showCard";
 export default function SeriesPage(props) {
   return (
     <React.Fragment>
-      {props.series.map((m) => {
-        return <ShowCard imgUrl={m.images["Poster Art"].url} title={m.title} />;
-      })}
+      <section className="d-flex flex-column align-items-center">
+        {props.series.map((m, index) => {
+          return (
+            <ShowCard
+              key={index}
+              imgUrl={m.images["Poster Art"].url}
+              title={m.title}
+            />
+          );
+        })}
+      </section>
     </React.Fragment>
   );
 }

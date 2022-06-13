@@ -2,6 +2,12 @@
     width: 10rem;
     position: relative;
 }
+
+.genreCard:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
 .genreInnerCard {
     background-color: rgb(28, 28, 28);
     height: 16rem;
