@@ -1,10 +1,19 @@
 import React from "react";
 import "./style.css";
+import defaultImage from "../../Images/defaultImage.jpg";
 
 export default function ShowCard(props) {
   return (
     <div className="showCard">
-      <img src={props.imgUrl} className="card-img-top" alt="..." />
+      <img
+        src={props.imgUrl}
+        className="card-img-top"
+        alt={props.title}
+        onError={(event) => {
+          event.target.src = defaultImage;
+          event.onerror = null;
+        }}
+      />
       <p className="card-text mt-2">{props.title}</p>
     </div>
   );

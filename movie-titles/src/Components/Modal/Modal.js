@@ -3,14 +3,14 @@ import "./style.css";
 import axios from "axios";
 import { useEffect } from "react";
 import Spinner from "../Spinner/Spinner";
+import defaultImage from "../../Images/defaultImage.jpg";
 
 export default function Modal(props) {
   const [loading, setLoading] = useState(true);
+  const [yearFactColor, setYearFactsColor] = useState("RoyalBlue");
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    setLoading(false);
   }, []);
 
   const [yearFacts, setYearFacts] = useState("");
@@ -22,16 +22,19 @@ export default function Modal(props) {
       );
       // display API failure to user if status code is not 200
       if (response.status === 200) {
+        setYearFactsColor("RoyalBlue");
         setYearFacts(response.data);
       } else {
         setYearFacts(
-          "Warning: unable to retrieve interest facts about the year, API Failed!"
+          "Warning: unable to retrieve interesting facts about the year, API Failed!"
         );
+        setYearFactsColor("OrangeRed");
       }
     } catch (e) {
       setYearFacts(
-        "Warning: unable to retrieve interest facts about the year, API Failed!"
+        "Warning: unable to retrieve interesting facts about the year, API Failed!"
       );
+      setYearFactsColor("OrangeRed");
     }
   };
 
@@ -70,11 +73,21 @@ export default function Modal(props) {
                   <p>{props.movieDetails.description}</p>
                   <p>type: {props.movieDetails.programType}</p>
                   <p>release year: {props.movieDetails.releaseYear}</p>
-                  <p className="yearFacts">{yearFacts}</p>
+
+                  <p
+                    className="yearFacts"
+                    style={{ backgroundColor: yearFactColor }}
+                  >
+                    {yearFacts}
+                  </p>
                   <div className="moviePoster">
                     {props.movieDetails.images["Poster Art"].url ? (
                       <img
                         src={props.movieDetails.images["Poster Art"].url}
+                        onError={(event) => {
+                          event.target.src = defaultImage;
+                          event.onerror = null;
+                        }}
                         alt="modal"
                         style={{ width: "14rem" }}
                       />
