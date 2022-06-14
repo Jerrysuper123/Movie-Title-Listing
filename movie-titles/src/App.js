@@ -2,7 +2,6 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import sampleData from "./localData/sample.json";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Spinner from "./Components/Spinner/Spinner";
 
 import NavBar from "./Components/Navbar/NavBar";
 import Footer from "./Components/Footer/Footer";

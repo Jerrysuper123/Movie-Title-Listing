@@ -25,14 +25,14 @@ export default function NavBar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto me-5">
               <li className="nav-item ms-3">
-                <a className="nav-link logInBtn" aria-current="page" href="#">
+                <span className="nav-link logInBtn" aria-current="page">
                   Log in
-                </a>
+                </span>
               </li>
               <li className="nav-item ms-2">
-                <a className="nav-link trialBtn ps-3" href="#">
+                <span className="nav-link trialBtn ps-3">
                   Start your free trial
-                </a>
+                </span>
               </li>
             </ul>
           </div>
