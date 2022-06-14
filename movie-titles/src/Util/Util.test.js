@@ -1,6 +1,4 @@
-import { render, screen } from "@testing-library/react";
-import App from "./App";
-import React from "react";
+import { fetchAllShows } from "./Util";
 import renderer from "react-test-renderer";
 
 const sampleData = [
@@ -48,9 +46,6 @@ const sampleData = [
   },
 ];
 
-test("function set shows testing", () => {
-  let component = renderer.create(<App />).getInstance();
-
-  let tree = component.fetchAllShows(sampleData, "movies");
-  expect(tree).length.toBe(2);
+test("properly fiter series or movies", () => {
+  expect(fetchAllShows(sampleData, "movies").length.toBe(2));
 });
