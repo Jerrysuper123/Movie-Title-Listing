@@ -27,7 +27,10 @@ export default function HomePage() {
       {loading ? (
         <Spinner />
       ) : (
-        <section className="homePageBody d-flex flex-column flex-md-row py-5 container mb-5">
+        <section
+          id="homePageBody"
+          className="homePageBody d-flex flex-column flex-md-row py-5 container mb-5"
+        >
           <div className="me-4">
             <Link to="/series">
               <GenreCard title="SERIES" bodyText="Popular Series" />
