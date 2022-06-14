@@ -3,7 +3,7 @@ import "./style.css";
 import axios from "axios";
 import { useEffect } from "react";
 import Spinner from "../Spinner/Spinner";
-import defaultImage from "../../Images/defaultImage.jpg";
+// import defaultImage from "../../Images/defaultImage.jpg";
 
 export default function Modal(props) {
   const [loading, setLoading] = useState(true);
@@ -88,7 +88,8 @@ export default function Modal(props) {
                       <img
                         src={props.movieDetails.images["Poster Art"].url}
                         onError={(event) => {
-                          event.target.src = defaultImage;
+                          event.target.src =
+                            "https://raw.githubusercontent.com/Jerrysuper123/Movie-Title-Listing/main/movie-titles/src/Images/defaultImage.jpg";
                           event.onerror = null;
                         }}
                         alt="modal"
