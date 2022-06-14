@@ -13,7 +13,9 @@ export default function Modal(props) {
     setLoading(false);
   }, []);
 
-  const [yearFacts, setYearFacts] = useState("");
+  const [yearFacts, setYearFacts] = useState(
+    "unable to retrieve interesting facts about the year, API Failed!"
+  );
 
   const getReleaseYearFacts = async (releaseYear) => {
     try {
@@ -64,6 +66,7 @@ export default function Modal(props) {
                   </h5>
                   <button
                     type="button"
+                    id="btnCloseModal"
                     className="btn-close"
                     data-bs-dismiss="modal"
                     aria-label="Close"
@@ -98,6 +101,7 @@ export default function Modal(props) {
                 <div className="modal-footer">
                   <button
                     type="button"
+                    id="closeModalBtn"
                     className="btn btn-primary"
                     data-bs-dismiss="modal"
                   >
