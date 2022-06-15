@@ -9,6 +9,7 @@ import Footer from "./Components/Footer/Footer";
 import HomePage from "./HomePage/HomePage";
 import SeriesPage from "./SeriesPage/SeriesPage";
 import MoviesPage from "./MoviesPage/MoviesPage";
+import LoginPage from "./LoginPage/LoginPage";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -30,6 +31,7 @@ function App() {
   return (
     <React.Fragment>
       {/* <Spinner /> */}
+      <LoginPage />
       <Router>
         <NavBar />
         <Routes>
