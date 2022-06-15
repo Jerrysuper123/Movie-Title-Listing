@@ -3,6 +3,7 @@ import ShowCard from "../Components/showCard/showCard";
 import Modal from "../Components/Modal/Modal";
 import Spinner from "../Components/Spinner/Spinner";
 import SearchName from "../Components/SearchName/SearchName";
+import FilterYear from "../Components/FilterYear/FilterYear";
 import ProductContext from "../ProductContext";
 import "./style.css";
 
@@ -76,20 +77,31 @@ export default function MoviesPage(props) {
 
   //search movie by year function
   const [searchYear, setSearchYear] = useState("");
-  const handleSelect = (e) => {
-    setSearchYear(e.target.value);
-
-    let filteredMovies = props.movies.filter(
-      (m) => m.releaseYear.toString() === searchYear
-    );
-    setAllMovies(filteredMovies);
+  const filterMoviesByYear = (year) => {
+    if (year === "all") {
+      setAllMovies(props.movies);
+    } else {
+      let filteredMovies = props.movies.filter(
+        (m) => m.releaseYear.toString() === year
+      );
+      setAllMovies(filteredMovies);
+    }
   };
+  // const handleSelect = (e) => {
+  //   context.setSearchYear(e.target.value);
+
+  //   let filteredMovies = props.movies.filter(
+  //     (m) => m.releaseYear.toString() === context.searchYear
+  //   );
+  //   setAllMovies(filteredMovies);
+  // };
 
   useEffect(() => {
-    if (searchYear === "all") {
-      setAllMovies(props.movies);
-    }
-  }, [searchYear, props.movies]);
+    // if (context.searchYear === "all") {
+    //   setAllMovies(props.movies);
+    // }
+    filterMoviesByYear(context.searchYear);
+  }, [context.searchYear]);
 
   // for all year selection loading component
   const [allYearsForSelect, setAllYearsForselect] = useState([]);
@@ -140,13 +152,14 @@ export default function MoviesPage(props) {
           </span> */}
 
           <SearchName />
+          <FilterYear allYearsForSelect={allYearsForSelect} />
 
-          <span className="yearFilter">
+          {/* <span className="yearFilter">
             <label className="filterLabel me-2">year: </label>
             <select
               className="selectOptions"
-              value={searchYear}
-              onChange={handleSelect}
+              value={context.searchYear}
+              // onChange={handleSelect}
             >
               <option value="all">All</option>
               {allYearsForSelect.map((year) => {
@@ -156,11 +169,8 @@ export default function MoviesPage(props) {
                   </React.Fragment>
                 );
               })}
-
-              {/* <option value="2012">2012</option>
-              <option value="2012">2013</option> */}
             </select>
-          </span>
+          </span> */}
         </div>
       </section>
 
