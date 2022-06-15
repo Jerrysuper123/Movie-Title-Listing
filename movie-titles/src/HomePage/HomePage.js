@@ -53,7 +53,7 @@ export default function HomePage(props) {
         </div>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <section className="threeImage d-flex container-fluid">
+            <section className="threeImage d-flex">
               <img
                 src={props.movies[0].images["Poster Art"].url}
                 className="d-block w-100"
@@ -61,12 +61,12 @@ export default function HomePage(props) {
               />
               <img
                 src={props.movies[1].images["Poster Art"].url}
-                className="d-block w-100"
+                className="d-block w-100 hideImg"
                 alt={props.movies[1].title}
               />
               <img
                 src={props.movies[2].images["Poster Art"].url}
-                className="d-block w-100"
+                className="d-block w-100 hideImg"
                 alt={props.movies[2].title}
               />
             </section>

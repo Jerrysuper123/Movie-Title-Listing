@@ -8,3 +8,20 @@
     height: 60vh;
     overflow: hidden;
 }
+
+.hideImg {
+    display: inline-block;
+}
+
+@media only screen and (max-width: 780px) {
+    /* body {
+        background-color: lightblue;
+    } */
+    .hideImg {
+        display: none;
+    }
+
+    /* .mainImg {
+        width: 100%;
+    } */
+}
