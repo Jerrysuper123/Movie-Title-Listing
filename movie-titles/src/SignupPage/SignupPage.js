@@ -45,7 +45,7 @@ export default function SignupPage() {
 
           <section>
             <div className="mt-2 userFormFooter">
-              {/* New Users? <Link to="/register">Sign up</Link> */}
+              Have an account? <Link to="/login">Sign in</Link>
             </div>
           </section>
         </div>

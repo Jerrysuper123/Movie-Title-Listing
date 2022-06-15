@@ -26,12 +26,12 @@ export default function NavBar() {
             <ul className="navbar-nav ms-auto me-5">
               <li className="nav-item ms-3">
                 <span className="nav-link logInBtn" aria-current="page">
-                  Log in
+                  <Link to="/login">Log in</Link>
                 </span>
               </li>
               <li className="nav-item ms-2">
                 <span className="nav-link trialBtn ps-3">
-                  Start your free trial
+                  <Link to="/signup"> Start your free trial</Link>
                 </span>
               </li>
             </ul>
