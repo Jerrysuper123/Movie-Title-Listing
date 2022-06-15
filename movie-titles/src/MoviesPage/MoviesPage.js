@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import ShowCard from "../Components/showCard/showCard";
 import Modal from "../Components/Modal/Modal";
 import Spinner from "../Components/Spinner/Spinner";
+import ProductContext from "../ProductContext";
 import "./style.css";
 
 export default function MoviesPage(props) {
@@ -50,11 +51,12 @@ export default function MoviesPage(props) {
   };
 
   //search movie by name function
-  const [searchString, setSearchString] = useState("");
+  let context = useContext(ProductContext);
+  // const [searchString, setSearchString] = useState("");
   const handleSearchString = (e) => {
-    setSearchString(e.target.value);
+    context.setSearchString(e.target.value);
 
-    let string = searchString.toLowerCase();
+    let string = context.searchString.toLowerCase();
     let filteredMovies = props.movies.filter((m) =>
       m.title.toLowerCase().includes(string)
     );
@@ -62,27 +64,27 @@ export default function MoviesPage(props) {
   };
 
   useEffect(() => {
-    if (searchString === "") {
+    if (context.searchString === "") {
       setAllMovies(props.movies);
     }
-  }, [searchString, props.movies]);
+  }, [context.searchString, props.movies]);
 
   //search movie by year function
-  const [searchYear, setSearchYear] = useState("");
+  // const [searchYear, setSearchYear] = useState("");
   const handleSelect = (e) => {
-    setSearchYear(e.target.value);
+    context.setSearchYear(e.target.value);
 
     let filteredMovies = props.movies.filter(
-      (m) => m.releaseYear.toString() === searchYear
+      (m) => m.releaseYear.toString() === context.searchYear
     );
     setAllMovies(filteredMovies);
   };
 
   useEffect(() => {
-    if (searchYear === "all") {
+    if (context.searchYear === "all") {
       setAllMovies(props.movies);
     }
-  }, [searchYear, props.movies]);
+  }, [context.searchYear, props.movies]);
 
   // for all year selection loading component
   const [allYearsForSelect, setAllYearsForselect] = useState([]);
@@ -123,7 +125,7 @@ export default function MoviesPage(props) {
                 placeholder="Search by name..."
                 aria-label="Search"
                 name="searchString"
-                value={searchString}
+                value={context.searchString}
                 // ref={inputRef}
                 onChange={handleSearchString}
                 // onBlur={toggleBtweenBtnBar}
@@ -135,7 +137,7 @@ export default function MoviesPage(props) {
             <label className="filterLabel me-2">year: </label>
             <select
               className="selectOptions"
-              value={searchYear}
+              value={context.searchYear}
               onChange={handleSelect}
             >
               <option value="all">All</option>
