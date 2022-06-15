@@ -18,25 +18,32 @@ export default function Modal(props) {
   );
 
   const getReleaseYearFacts = async (releaseYear) => {
-    try {
-      let response = await axios.get(
-        `http://numbersapi.com/${releaseYear}/year`
-      );
-      // display API failure to user if status code is not 200
-      if (response.status === 200) {
-        setYearFactsColor("RoyalBlue");
-        setYearFacts(response.data);
-      } else {
+    if (releaseYear === undefined) {
+      return;
+    } else {
+      try {
+        let response = await axios.get(
+          `http://numbersapi.com/${releaseYear}/year`
+        );
+        // display API failure to user if status code is not 200
+        if (response.status === 200) {
+          setYearFactsColor("RoyalBlue");
+          setYearFacts(response.data);
+          console.log(response.data);
+        } else {
+          console.log("error unable to retrieve");
+          setYearFacts(
+            "Warning: unable to retrieve interesting facts about the year, API Failed!"
+          );
+          setYearFactsColor("OrangeRed");
+        }
+      } catch (e) {
+        console.log(e);
         setYearFacts(
           "Warning: unable to retrieve interesting facts about the year, API Failed!"
         );
         setYearFactsColor("OrangeRed");
       }
-    } catch (e) {
-      setYearFacts(
-        "Warning: unable to retrieve interesting facts about the year, API Failed!"
-      );
-      setYearFactsColor("OrangeRed");
     }
   };
 
@@ -54,7 +61,7 @@ export default function Modal(props) {
           <div
             className="modal fade"
             id="exampleModal"
-            tabindex="-1"
+            tabIndex="-1"
             aria-labelledby="exampleModalLabel"
             aria-hidden="true"
           >

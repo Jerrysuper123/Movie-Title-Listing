@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import AppStore from "../../Images/appStore.png";
+// import AppStore from "../../Images/appStore.png";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -30,7 +30,13 @@ export default function Footer() {
           </section>
 
           <section className="app store">
-            <img src={AppStore} alt="appStore" className="appStoreImg" />
+            <img
+              src={
+                "https://raw.githubusercontent.com/Jerrysuper123/Movie-Title-Listing/main/movie-titles/src/Images/appStore.png"
+              }
+              alt="appStore"
+              className="appStoreImg"
+            />
           </section>
         </section>
       </main>
