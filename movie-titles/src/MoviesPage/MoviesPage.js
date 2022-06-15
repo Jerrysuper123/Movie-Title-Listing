@@ -105,7 +105,7 @@ export default function MoviesPage(props) {
           <span className="searchInputContainer d-flex align-items-center">
             <section className="mb-1">
               <input
-                className="me-2 searchInput"
+                className="ms-2 searchInput"
                 type="search"
                 placeholder="Search by name..."
                 aria-label="Search"
@@ -119,7 +119,7 @@ export default function MoviesPage(props) {
             </section>
           </span>
           <span className="yearFilter">
-            <label className="filterLabel me-1">year: </label>
+            <label className="filterLabel me-2">year: </label>
             <select
               className="selectOptions"
               value={searchYear}
