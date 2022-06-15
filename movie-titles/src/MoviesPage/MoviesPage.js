@@ -14,6 +14,7 @@ export default function MoviesPage(props) {
   const [allMovies, setAllMovies] = useState([]);
   useEffect(() => {
     setAllMovies(props.movies);
+    setAllYearsForselect(createUniqueYearSet(props.movies));
   }, [props.movies]);
 
   // add pagination to the page
@@ -83,6 +84,17 @@ export default function MoviesPage(props) {
     }
   }, [searchYear, props.movies]);
 
+  // for all year selection loading component
+  const [allYearsForSelect, setAllYearsForselect] = useState([]);
+  // create unique array of all years available in data
+  const createUniqueYearSet = (array) => {
+    let yearSet = new Set();
+    for (let m of array) {
+      yearSet.add(m.releaseYear);
+    }
+
+    return Array.from(yearSet).sort((a, b) => a - b);
+  };
   // show and hide synopsis when hover over
   // const [showSynosis, setShowSynopsis] = useState(false);
   // const showSynopsis = (e) => {
@@ -102,6 +114,7 @@ export default function MoviesPage(props) {
       <section className="navIntro">
         <div className="container d-flex justify-content-between align-items-center">
           <span className="pageHeader">Popular Movies</span>
+
           <span className="searchInputContainer d-flex align-items-center">
             <section className="mb-1">
               <input
@@ -126,8 +139,16 @@ export default function MoviesPage(props) {
               onChange={handleSelect}
             >
               <option value="all">All</option>
-              <option value="2012">2012</option>
-              <option value="2012">2013</option>
+              {allYearsForSelect.map((year) => {
+                return (
+                  <React.Fragment key={year}>
+                    <option value={year}>{year}</option>
+                  </React.Fragment>
+                );
+              })}
+
+              {/* <option value="2012">2012</option>
+              <option value="2012">2013</option> */}
             </select>
           </span>
         </div>
