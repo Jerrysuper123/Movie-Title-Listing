@@ -44,7 +44,7 @@ function App() {
 
   // this is for search bar string and filter year context, so that we could reuse these components
   const [searchString, setSearchString] = useState("");
-  const [searchYear, setSearchYear] = useState("");
+  const [searchYear, setSearchYear] = useState("all");
 
   const context = {
     searchString,

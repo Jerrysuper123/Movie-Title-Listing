@@ -1,10 +1,16 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  useContext,
+  useCallback,
+} from "react";
+import HeaderPage from "../Components/HeaderPage/HeaderPage";
 import ShowCard from "../Components/showCard/showCard";
 import Modal from "../Components/Modal/Modal";
 import Spinner from "../Components/Spinner/Spinner";
-import SearchName from "../Components/SearchName/SearchName";
-import FilterYear from "../Components/FilterYear/FilterYear";
 import ProductContext from "../ProductContext";
+import { createUniqueYearSet } from "../Util";
 import "./style.css";
 
 export default function MoviesPage(props) {
@@ -23,6 +29,7 @@ export default function MoviesPage(props) {
 
   // add pagination to the page
   const [allItems, setTotalItems] = useState(21);
+
   const addMoreItems = () => {
     let totalItems = allItems + 21;
     if (totalItems > allMovies.length) {
@@ -53,31 +60,36 @@ export default function MoviesPage(props) {
     }, 50);
   };
 
-  //search movie by name function
+  /*filter movie bar starts here*/
 
-  // const [searchString, setSearchString] = useState("");
-  // const handleSearchString = (e) => {
-  //   context.setSearchString(e.target.value);
-
-  // };
-
-  useEffect(() => {
-    let string = context.searchString.toLowerCase();
-    let filteredMovies = props.movies.filter((m) =>
-      m.title.toLowerCase().includes(string)
-    );
-    setAllMovies(filteredMovies);
-  }, [context.searchString, props.movies]);
-
-  useEffect(() => {
-    if (context.searchString === "") {
+  const filterMovieByName = useCallback(() => {
+    let name = context.searchString;
+    if (name === "") {
       setAllMovies(props.movies);
+    } else {
+      let string = name.toLowerCase();
+      let filteredMovies = props.movies.filter((m) =>
+        m.title.toLowerCase().includes(string)
+      );
+      setAllMovies(filteredMovies);
     }
   }, [context.searchString, props.movies]);
 
-  //search movie by year function
-  const [searchYear, setSearchYear] = useState("");
-  const filterMoviesByYear = (year) => {
+  //do not render below when first mounted
+  const isMounted = useRef(false);
+
+  useEffect(() => {
+    // do not filter when first loaded
+    if (!isMounted.current) {
+      isMounted.current = true;
+    } else {
+      filterMovieByName();
+    }
+  }, [filterMovieByName]);
+
+  /*Filter year starts here*/
+  const filterMoviesByYear = useCallback(() => {
+    let year = context.searchYear;
     if (year === "all") {
       setAllMovies(props.movies);
     } else {
@@ -86,93 +98,31 @@ export default function MoviesPage(props) {
       );
       setAllMovies(filteredMovies);
     }
-  };
-  // const handleSelect = (e) => {
-  //   context.setSearchYear(e.target.value);
-
-  //   let filteredMovies = props.movies.filter(
-  //     (m) => m.releaseYear.toString() === context.searchYear
-  //   );
-  //   setAllMovies(filteredMovies);
-  // };
+  }, [context.searchYear, props.movies]);
 
   useEffect(() => {
-    // if (context.searchYear === "all") {
-    //   setAllMovies(props.movies);
-    // }
-    filterMoviesByYear(context.searchYear);
-  }, [context.searchYear]);
+    filterMoviesByYear();
+  }, [filterMoviesByYear]);
 
   // for all year selection loading component
   const [allYearsForSelect, setAllYearsForselect] = useState([]);
-  // create unique array of all years available in data
-  const createUniqueYearSet = (array) => {
-    let yearSet = new Set();
-    for (let m of array) {
-      yearSet.add(m.releaseYear);
-    }
 
-    return Array.from(yearSet).sort((a, b) => a - b);
-  };
-  // show and hide synopsis when hover over
-  // const [showSynosis, setShowSynopsis] = useState(false);
-  // const showSynopsis = (e) => {
-  //   let synoposis = e.target.childNodes[1];
-  //   synoposis.style.display = "block";
-  // };
+  // clear all search results when component unmount
+  const clearAllSearch = useCallback(() => {
+    context.setSearchString("");
+    context.setSearchYear("all");
+  }, []);
 
-  // const hideSynopsis = (e) => {
-  //   // let synoposis = e.target.nextSibling;
-  //   // synoposis.style.display = "none";
-  //   // let synoposis = e.target.childNodes[1];
-  //   // synoposis.style.display = "none";
-  // };
+  useEffect(() => {
+    return () => {
+      // Anything in here is fired on component unmount.
+      clearAllSearch();
+    };
+  }, [clearAllSearch]);
 
   return (
     <React.Fragment>
-      <section className="navIntro">
-        <div className="container d-flex justify-content-between align-items-center">
-          <span className="pageHeader">Popular Movies</span>
-          {/* 
-          <span className="searchInputContainer d-flex align-items-center">
-            <section className="mb-1">
-              <input
-                className="ms-2 searchInput"
-                type="search"
-                placeholder="Search by name..."
-                aria-label="Search"
-                name="searchString"
-                value={context.searchString}
-                // ref={inputRef}
-                onChange={handleSearchString}
-                // onBlur={toggleBtweenBtnBar}
-              />
-              <i className="fa-solid fa-magnifying-glass searchGlass"></i>
-            </section>
-          </span> */}
-
-          <SearchName />
-          <FilterYear allYearsForSelect={allYearsForSelect} />
-
-          {/* <span className="yearFilter">
-            <label className="filterLabel me-2">year: </label>
-            <select
-              className="selectOptions"
-              value={context.searchYear}
-              // onChange={handleSelect}
-            >
-              <option value="all">All</option>
-              {allYearsForSelect.map((year) => {
-                return (
-                  <React.Fragment key={year}>
-                    <option value={year}>{year}</option>
-                  </React.Fragment>
-                );
-              })}
-            </select>
-          </span> */}
-        </div>
-      </section>
+      <HeaderPage allYearsForSelect={allYearsForSelect} title="Movies" />
 
       <button
         type="button"
