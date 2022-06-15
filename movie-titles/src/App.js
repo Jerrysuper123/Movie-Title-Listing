@@ -6,7 +6,7 @@ import ProductContext from "./ProductContext";
 
 import NavBar from "./Components/Navbar/NavBar";
 import Footer from "./Components/Footer/Footer";
-
+import ScrollUpBtn from "./Components/ScrollUpBtn/ScrollUpBtn";
 import HomePage from "./HomePage/HomePage";
 import SeriesPage from "./SeriesPage/SeriesPage";
 import MoviesPage from "./MoviesPage/MoviesPage";
@@ -56,6 +56,7 @@ function App() {
   return (
     <React.Fragment>
       {/* <Spinner /> */}
+      <ScrollUpBtn />
       <ProductContext.Provider value={context}>
         <Router>
           <NavBar />

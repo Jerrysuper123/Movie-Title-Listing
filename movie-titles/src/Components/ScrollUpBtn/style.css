@@ -1,0 +1,14 @@
+.back-to-top {
+    position: fixed;
+    width: 4.5rem;
+    height: 4.5rem;
+    bottom: 2rem;
+    right: 2rem;
+    font-size: 4.5rem;
+    background-image: linear-gradient(to right, #049dd9, #1a5ef1);
+    color: white;
+    cursor: pointer;
+    border-radius: 3rem;
+    border: none;
+    box-shadow: 0 5px 10px rgb(77, 255, 222);
+}
