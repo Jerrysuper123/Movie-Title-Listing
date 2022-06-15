@@ -36,7 +36,7 @@ The deployment is done on Oracle cloud DB.
 - used custom hooks
 - use statement tools - useContext; did not use Redux as useContext is easier to use for such a small app
 - the app is fully implemented using ES6 and functional components
-- used 3rd party libary Boostrap 5, did consider Material UI but there is no use case in this small app (Material UI is a bit hard to use due to its documentation, so given a short timeline, it is better to use it sparely)
+- used 3rd party libary Boostrap 5, did consider Material UI but there is no use case in this small app
 
 # If given more time
 
