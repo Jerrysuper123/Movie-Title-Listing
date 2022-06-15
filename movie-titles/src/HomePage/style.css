@@ -13,12 +13,33 @@
     display: inline-block;
 }
 
+.banner {
+    position: relative;
+}
+
+.cta {
+    position: absolute;
+    top: 20vh;
+    left: 25vw;
+    width: 50%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 1rem;
+}
+
 @media only screen and (max-width: 780px) {
     /* body {
         background-color: lightblue;
     } */
     .hideImg {
         display: none;
+    }
+
+    .cta {
+        position: static;
+        width: 100%;
+        border-radius: 0;
+        background-color: rgb(54, 97, 162);
     }
 
     /* .mainImg {
