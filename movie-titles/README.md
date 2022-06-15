@@ -43,3 +43,5 @@ The deployment is done on Oracle cloud DB.
 - Use continuous integration tools such as Travis CI/Jenkins
 
 unable to retrieve public API
+
+- removed unnessary files and img from create-react-app
