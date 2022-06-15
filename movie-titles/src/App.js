@@ -10,6 +10,7 @@ import HomePage from "./HomePage/HomePage";
 import SeriesPage from "./SeriesPage/SeriesPage";
 import MoviesPage from "./MoviesPage/MoviesPage";
 import LoginPage from "./LoginPage/LoginPage";
+import SignupPage from "./SignupPage/SignupPage";
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -31,13 +32,14 @@ function App() {
   return (
     <React.Fragment>
       {/* <Spinner /> */}
-      <LoginPage />
       <Router>
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage movies={movies} />} />
           <Route path="/series" element={<SeriesPage series={series} />} />
           <Route path="/movies" element={<MoviesPage movies={movies} />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
         </Routes>
         <Footer />
       </Router>
