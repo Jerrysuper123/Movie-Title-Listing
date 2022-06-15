@@ -84,6 +84,24 @@ export default function SeriesPage(props) {
   // for all year selection loading component
   const [allYearsForSelect, setAllYearsForselect] = useState([]);
 
+  // add pagination to the page
+  const [allItems, setTotalItems] = useState(21);
+
+  const addMoreItems = () => {
+    let totalItems = allItems + 21;
+    if (totalItems > allSeries.length) {
+      totalItems = allSeries.length;
+    }
+    setTotalItems(totalItems);
+  };
+
+  const [displaySeries, setDisplaySeries] = useState([]);
+
+  useEffect(() => {
+    let clone = allSeries.slice(0, allItems);
+    setDisplaySeries(clone);
+  }, [allSeries, allItems]);
+
   // clear all search results when component unmount
   const clearAllSearch = useCallback(() => {
     context.setSearchString("");
@@ -119,7 +137,7 @@ export default function SeriesPage(props) {
       ) : (
         <section className="container py-5">
           <div className="row">
-            {allSeries.map((m, index) => {
+            {displaySeries.map((m, index) => {
               return (
                 <section
                   className="col"
@@ -136,6 +154,16 @@ export default function SeriesPage(props) {
               );
             })}
           </div>
+          {displaySeries.length === allSeries.length ? null : (
+            <div className="text-center mt-5">
+              <input
+                type="submit"
+                className="mt-3 userBtn"
+                value="Load more"
+                onClick={addMoreItems}
+              />
+            </div>
+          )}
         </section>
       )}
     </React.Fragment>

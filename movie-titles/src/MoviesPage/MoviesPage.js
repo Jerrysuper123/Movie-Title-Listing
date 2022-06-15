@@ -106,6 +106,15 @@ export default function MoviesPage(props) {
 
   // for all year selection loading component
   const [allYearsForSelect, setAllYearsForselect] = useState([]);
+  // create unique array of all years available in data
+  // const createUniqueYearSet = (array) => {
+  //   let yearSet = new Set();
+  //   for (let m of array) {
+  //     yearSet.add(m.releaseYear);
+  //   }
+
+  //   return Array.from(yearSet).sort((a, b) => a - b);
+  // };
 
   // clear all search results when component unmount
   const clearAllSearch = useCallback(() => {
