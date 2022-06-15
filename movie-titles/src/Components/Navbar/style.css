@@ -5,6 +5,8 @@
 .navbar {
     background-color: #0b77e3 !important;
     height: 4rem;
+    position: sticky;
+    top: 0px;
 }
 
 .navbar-collapse {
@@ -24,7 +26,7 @@
 }
 
 .navbar-brand:hover {
-    transform: scale(1.02);
+    border-bottom: 2px solid #0be3b1;
 }
 
 .logInBtn {
@@ -33,7 +35,7 @@
 }
 
 .logInBtn:hover {
-    transform: scale(1.02);
+    border-bottom: 2px solid #0be3b1;
 }
 
 .trialBtn {
@@ -44,7 +46,7 @@
 }
 
 .trialBtn:hover {
-    transform: scale(1.02);
+    border-bottom: 1px solid #0be3b1;
 }
 
 .navIntro {
