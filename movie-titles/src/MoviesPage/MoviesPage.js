@@ -16,6 +16,27 @@ export default function MoviesPage(props) {
     setAllMovies(props.movies);
   }, [props.movies]);
 
+  // add pagination to the page
+  const [allItems, setTotalItems] = useState(21);
+  const addMoreItems = () => {
+    let totalItems = allItems + 21;
+    if (totalItems > allMovies.length) {
+      totalItems = allMovies.length;
+    }
+    setTotalItems(totalItems);
+  };
+
+  const [displayMovies, setDisplayMovies] = useState([]);
+
+  useEffect(() => {
+    let clone = allMovies.slice(0, allItems);
+    setDisplayMovies(clone);
+  }, [allMovies, allItems]);
+
+  // pagination ends here
+
+  // modal starts here
+
   const [movieDetails, setMovieDetails] = useState({});
   const modalBtnElement = useRef(null);
 
@@ -130,7 +151,7 @@ export default function MoviesPage(props) {
       ) : (
         <section className="container py-5">
           <div className="row">
-            {allMovies.map((m, index) => {
+            {displayMovies.map((m, index) => {
               return (
                 <section
                   className="col movieCard"
@@ -154,6 +175,17 @@ export default function MoviesPage(props) {
               );
             })}
           </div>
+          {/* if we have come to end , we do not display load more button */}
+          {displayMovies.length === allMovies.length ? null : (
+            <div className="text-center mt-5">
+              <input
+                type="submit"
+                className="mt-3 userBtn"
+                value="Load more"
+                onClick={addMoreItems}
+              />
+            </div>
+          )}
         </section>
       )}
     </React.Fragment>
