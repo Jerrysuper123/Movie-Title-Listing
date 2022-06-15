@@ -5,11 +5,6 @@ export default function FilterYear(props) {
   let context = useContext(ProductContext);
   const handleSelect = (e) => {
     context.setSearchYear(e.target.value);
-
-    // let filteredMovies = props.movies.filter(
-    //   (m) => m.releaseYear.toString() === context.searchYear
-    // );
-    // setAllMovies(filteredMovies);
   };
 
   return (
@@ -20,7 +15,7 @@ export default function FilterYear(props) {
         value={context.searchYear}
         onChange={handleSelect}
       >
-        <option value="all">All</option>
+        <option value="all">All time</option>
         {props.allYearsForSelect.map((year) => {
           return (
             <React.Fragment key={year}>

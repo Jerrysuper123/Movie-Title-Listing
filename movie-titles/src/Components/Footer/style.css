@@ -21,6 +21,11 @@
     padding: 1rem;
 }
 
+.socialMediaIcon:hover {
+    cursor: pointer;
+    color: rgb(46, 159, 208);
+}
+
 .appStoreImg {
     height: 2.2rem;
 }
@@ -38,7 +43,12 @@
     color: white;
 }
 
-.footerHeader:hover {
+.footerHome > a:hover {
     cursor: pointer;
-    transform: scale(1.01);
+    color: rgb(46, 159, 208);
+}
+
+.footerHeader > span:hover {
+    cursor: pointer;
+    color: rgb(46, 159, 208);
 }
