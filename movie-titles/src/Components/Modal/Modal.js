@@ -29,6 +29,7 @@ export default function Modal(props) {
         if (response.status === 200) {
           setYearFactsColor("RoyalBlue");
           setYearFacts(response.data);
+          // https cannot reach out http request for number api
           console.log(response.data);
         } else {
           console.log("error unable to retrieve");
