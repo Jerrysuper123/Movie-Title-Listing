@@ -12,6 +12,7 @@
 
 .navbar-collapse {
     background-color: #0b77e3 !important;
+    padding-bottom: 1rem;
     width: 100%;
     z-index: 3;
 }
