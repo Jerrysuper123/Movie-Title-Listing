@@ -33,7 +33,7 @@ function App() {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage movies={movies} />} />
           <Route path="/series" element={<SeriesPage series={series} />} />
           <Route path="/movies" element={<MoviesPage movies={movies} />} />
         </Routes>

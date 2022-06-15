@@ -62,6 +62,20 @@ export default function MoviesPage(props) {
     }
   }, [searchYear, props.movies]);
 
+  // show and hide synopsis when hover over
+  // const [showSynosis, setShowSynopsis] = useState(false);
+  // const showSynopsis = (e) => {
+  //   let synoposis = e.target.childNodes[1];
+  //   synoposis.style.display = "block";
+  // };
+
+  // const hideSynopsis = (e) => {
+  //   // let synoposis = e.target.nextSibling;
+  //   // synoposis.style.display = "none";
+  //   // let synoposis = e.target.childNodes[1];
+  //   // synoposis.style.display = "none";
+  // };
+
   return (
     <React.Fragment>
       <section className="navIntro">
@@ -119,14 +133,23 @@ export default function MoviesPage(props) {
             {allMovies.map((m, index) => {
               return (
                 <section
-                  className="col"
+                  className="col movieCard"
                   key={index}
                   onClick={() => setMovie(m)}
+                  // onMouseOver={showSynopsis}
+                  // onMouseOut={hideSynopsis}
                 >
-                  <ShowCard
-                    imgUrl={m.images["Poster Art"].url}
-                    title={m.title}
-                  />
+                  <div>
+                    <ShowCard
+                      imgUrl={m.images["Poster Art"].url}
+                      title={m.title}
+                    />
+                  </div>
+
+                  {/* <section className="synopsis p-2">
+                    <h6>Synosis:</h6>
+                    <p>{m.description.slice(0, 120)}...</p>
+                  </section> */}
                 </section>
               );
             })}

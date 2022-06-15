@@ -81,10 +81,14 @@ export default function Modal(props) {
                   ></button>
                 </div>
                 <div className="modal-body d-flex flex-column align-items-center">
-                  <p>{props.movieDetails.description}</p>
-                  <p>type: {props.movieDetails.programType}</p>
-                  <p>release year: {props.movieDetails.releaseYear}</p>
-
+                  <p className="modalBodyText">
+                    {props.movieDetails.description}
+                  </p>
+                  <h6>type: {props.movieDetails.programType}</h6>
+                  <h6>release year: {props.movieDetails.releaseYear}</h6>
+                  <h3 className="text-primary">
+                    Interesting facts about the year
+                  </h3>
                   <p
                     className="yearFacts"
                     style={{ backgroundColor: yearFactColor }}

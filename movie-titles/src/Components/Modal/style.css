@@ -3,3 +3,8 @@
     /* background-color: #0b77e3; */
     color: white;
 }
+
+.modalBodyText {
+    color: rgb(50, 50, 50);
+    font-style: italic;
+}
