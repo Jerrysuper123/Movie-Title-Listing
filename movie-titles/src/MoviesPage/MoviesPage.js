@@ -2,10 +2,12 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import ShowCard from "../Components/showCard/showCard";
 import Modal from "../Components/Modal/Modal";
 import Spinner from "../Components/Spinner/Spinner";
+import SearchName from "../Components/SearchName/SearchName";
 import ProductContext from "../ProductContext";
 import "./style.css";
 
 export default function MoviesPage(props) {
+  let context = useContext(ProductContext);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -51,17 +53,20 @@ export default function MoviesPage(props) {
   };
 
   //search movie by name function
-  let context = useContext(ProductContext);
-  // const [searchString, setSearchString] = useState("");
-  const handleSearchString = (e) => {
-    context.setSearchString(e.target.value);
 
+  // const [searchString, setSearchString] = useState("");
+  // const handleSearchString = (e) => {
+  //   context.setSearchString(e.target.value);
+
+  // };
+
+  useEffect(() => {
     let string = context.searchString.toLowerCase();
     let filteredMovies = props.movies.filter((m) =>
       m.title.toLowerCase().includes(string)
     );
     setAllMovies(filteredMovies);
-  };
+  }, [context.searchString, props.movies]);
 
   useEffect(() => {
     if (context.searchString === "") {
@@ -70,21 +75,21 @@ export default function MoviesPage(props) {
   }, [context.searchString, props.movies]);
 
   //search movie by year function
-  // const [searchYear, setSearchYear] = useState("");
+  const [searchYear, setSearchYear] = useState("");
   const handleSelect = (e) => {
-    context.setSearchYear(e.target.value);
+    setSearchYear(e.target.value);
 
     let filteredMovies = props.movies.filter(
-      (m) => m.releaseYear.toString() === context.searchYear
+      (m) => m.releaseYear.toString() === searchYear
     );
     setAllMovies(filteredMovies);
   };
 
   useEffect(() => {
-    if (context.searchYear === "all") {
+    if (searchYear === "all") {
       setAllMovies(props.movies);
     }
-  }, [context.searchYear, props.movies]);
+  }, [searchYear, props.movies]);
 
   // for all year selection loading component
   const [allYearsForSelect, setAllYearsForselect] = useState([]);
@@ -116,7 +121,7 @@ export default function MoviesPage(props) {
       <section className="navIntro">
         <div className="container d-flex justify-content-between align-items-center">
           <span className="pageHeader">Popular Movies</span>
-
+          {/* 
           <span className="searchInputContainer d-flex align-items-center">
             <section className="mb-1">
               <input
@@ -132,12 +137,15 @@ export default function MoviesPage(props) {
               />
               <i className="fa-solid fa-magnifying-glass searchGlass"></i>
             </section>
-          </span>
+          </span> */}
+
+          <SearchName />
+
           <span className="yearFilter">
             <label className="filterLabel me-2">year: </label>
             <select
               className="selectOptions"
-              value={context.searchYear}
+              value={searchYear}
               onChange={handleSelect}
             >
               <option value="all">All</option>
