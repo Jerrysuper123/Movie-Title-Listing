@@ -4,6 +4,8 @@ This app renders some movies and series.
 
 Access the live link [here](https://objectstorage.ap-singapore-1.oraclecloud.com/n/axmcit0hitw1/b/movie-listing/o/index.html#/).
 
+https://objectstorage.ap-singapore-1.oraclecloud.com/n/axmcit0hitw1/b/movie-listing-two/o/index.html#/
+
 # Timeline
 
 1 week
@@ -16,6 +18,7 @@ Access the live link [here](https://objectstorage.ap-singapore-1.oraclecloud.com
 - added search name and filter by name to improve user exp
 - added carousell to entice viewers with a call to action to sign up
 - expanded the usage of the navbar to include other pages, also fixed the navbar so that it follows users whereever it goes
+- added scrollup top buttons as the list gets longer for better user experience
 
 ## Tech stack
 
