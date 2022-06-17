@@ -149,6 +149,7 @@ export default function SeriesPage(props) {
                   <ShowCard
                     imgUrl={m.images["Poster Art"].url}
                     title={m.title}
+                    description={m.description}
                   />
                 </section>
               );

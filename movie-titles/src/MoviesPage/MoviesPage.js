@@ -155,6 +155,7 @@ export default function MoviesPage(props) {
                     <ShowCard
                       imgUrl={m.images["Poster Art"].url}
                       title={m.title}
+                      description={m.description}
                     />
                   </div>
 

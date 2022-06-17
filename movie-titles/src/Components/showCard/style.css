@@ -1,8 +1,23 @@
 .showCard {
     width: 10rem;
+    position: relative;
 }
 
 .showCard:hover {
     cursor: pointer;
     transform: scale(1.02);
+    color: rgb(14, 130, 165);
+    font-weight: 600;
+}
+
+.synopsis {
+    background-color: rgba(0, 0, 0, 0.7);
+    background-image: linear-gradient(rgba(177, 16, 16, 0.8), rgba(0, 58, 128, 0.7));
+    color: white;
+    /* padding: 1rem; */
+    position: absolute;
+    min-height: 15rem;
+    overflow: hidden;
+    top: 0px;
+    z-index: 3;
 }

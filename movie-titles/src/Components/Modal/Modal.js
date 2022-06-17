@@ -98,7 +98,7 @@ export default function Modal(props) {
                   >
                     {yearFacts}
                   </p>
-                  <div className="moviePoster">
+                  <div className="moviePoster mb-3">
                     {props.movieDetails.images["Poster Art"].url ? (
                       <img
                         src={props.movieDetails.images["Poster Art"].url}
@@ -113,7 +113,7 @@ export default function Modal(props) {
                     ) : null}
                   </div>
                 </div>
-
+                {/* 
                 <div className="modal-footer">
                   <button
                     type="button"
@@ -123,7 +123,7 @@ export default function Modal(props) {
                   >
                     Close
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
