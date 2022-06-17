@@ -11,4 +11,5 @@
     border-radius: 3rem;
     border: none;
     box-shadow: 0 5px 10px rgb(77, 255, 222);
+    z-index: 10;
 }

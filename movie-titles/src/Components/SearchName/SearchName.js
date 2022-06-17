@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import ProductContext from "../../ProductContext";
+import "./style.css";
 
 export default function SearchName() {
   let context = useContext(ProductContext);

@@ -1,25 +1,3 @@
-.searchInputContainer {
-    background-color: white;
-    border-radius: 1rem;
-    padding: 0px;
-    min-width: 17rem;
-    max-height: 3rem;
-}
-
-.searchInput {
-    background-color: white;
-    color: rgb(12, 12, 12) !important;
-    border: none;
-    margin-top: 2px;
-    margin-left: 5px;
-    border-radius: 1rem;
-}
-
-.searchInput:focus {
-    outline: none;
-    /* padding: 1rem; */
-}
-
 .searchGlass {
     color: rgb(38, 167, 237);
 }
