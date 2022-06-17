@@ -11,43 +11,30 @@ import Modal from "../Components/Modal/Modal";
 import Spinner from "../Components/Spinner/Spinner";
 import ProductContext from "../ProductContext";
 import { createUniqueYearSet } from "../Util";
+import {
+  useLoadSpinner,
+  useLoadAndStoreShows,
+  usePaginationItemCount,
+  useDisplayItemsOnPagination,
+} from "../CustomHooks";
 import "./style.css";
 
 export default function MoviesPage(props) {
   let context = useContext(ProductContext);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+  // only show the spinner when the app first mounted
+  const [loading, setLoading] = useLoadSpinner(true);
 
-  const [allMovies, setAllMovies] = useState([]);
-  useEffect(() => {
-    setAllMovies(props.movies);
-    setAllYearsForselect(createUniqueYearSet(props.movies));
-  }, [props.movies]);
+  const [allMovies, setAllMovies] = useLoadAndStoreShows(props.movies);
 
-  // add pagination to the page
-  const [allItems, setTotalItems] = useState(21);
+  //first page intialize to load 21 items, and increase by 21 when users click load more
+  const [allItems, addMoreItems] = usePaginationItemCount(21, allMovies);
 
-  const addMoreItems = () => {
-    let totalItems = allItems + 21;
-    if (totalItems > allMovies.length) {
-      totalItems = allMovies.length;
-    }
-    setTotalItems(totalItems);
-  };
-
-  const [displayMovies, setDisplayMovies] = useState([]);
-
-  useEffect(() => {
-    let clone = allMovies.slice(0, allItems);
-    setDisplayMovies(clone);
-  }, [allMovies, allItems]);
-
-  // pagination ends here
-
-  // modal starts here
+  //display the page based on how many items user want to see in view
+  const [displayMovies, setDisplayMovies] = useDisplayItemsOnPagination(
+    allMovies,
+    allItems
+  );
 
   const [movieDetails, setMovieDetails] = useState({});
   const modalBtnElement = useRef(null);
@@ -61,7 +48,6 @@ export default function MoviesPage(props) {
   };
 
   /*filter movie bar starts here*/
-
   const filterMovieByName = useCallback(() => {
     let name = context.searchString;
     if (name === "") {
@@ -106,6 +92,9 @@ export default function MoviesPage(props) {
 
   // for all year selection loading component
   const [allYearsForSelect, setAllYearsForselect] = useState([]);
+  useEffect(() => {
+    setAllYearsForselect(createUniqueYearSet(props.movies));
+  }, [props.movies]);
 
   // clear all search results when component unmount
   const clearAllSearch = useCallback(() => {
@@ -148,8 +137,6 @@ export default function MoviesPage(props) {
                   className="col movieCard"
                   key={index}
                   onClick={() => setMovie(m)}
-                  // onMouseOver={showSynopsis}
-                  // onMouseOut={hideSynopsis}
                 >
                   <div>
                     <ShowCard
@@ -158,11 +145,6 @@ export default function MoviesPage(props) {
                       description={m.description}
                     />
                   </div>
-
-                  {/* <section className="synopsis p-2">
-                    <h6>Synosis:</h6>
-                    <p>{m.description.slice(0, 120)}...</p>
-                  </section> */}
                 </section>
               );
             })}

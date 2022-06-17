@@ -47,7 +47,5 @@ The deployment is done on Oracle cloud DB.
 # If given more time
 
 - Use continuous integration tools such as Travis CI/Jenkins
-
-unable to retrieve public API
-
-- removed unnessary files and img from create-react-app
+- DNS deployed
+- Create more custom hooks, test cusom hooks, unit test on all component

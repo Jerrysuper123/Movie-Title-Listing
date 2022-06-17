@@ -29,20 +29,23 @@ export default function Modal(props) {
         if (response.status === 200) {
           setYearFactsColor("RoyalBlue");
           setYearFacts(response.data);
-          // https cannot reach out http request for number api
-          console.log(response.data);
-        } else {
-          console.log("error unable to retrieve");
-          setYearFacts(
-            "Warning: unable to retrieve interesting facts about the year, API Failed!"
-          );
-          setYearFactsColor("OrangeRed");
         }
+
+        // else if (response.status === 500 && response.status === 503) {
+        //   console.log("error unable to retrieve");
+        //   setYearFacts("Warning: API Failed, internal server errors!");
+        //   setYearFactsColor("OrangeRed");
+        // } else if (response.status === 404) {
+        //   // console.log(response);
+        //   setYearFacts("Warning: API 404 not found!");
+        //   setYearFactsColor("OrangeRed");
+        // } else {
+        //   setYearFacts("Warning: API failed for some reasons");
+        //   setYearFactsColor("OrangeRed");
+        // }
       } catch (e) {
         console.log(e);
-        setYearFacts(
-          "Warning: unable to retrieve interesting facts about the year, API Failed!"
-        );
+        setYearFacts(e.message);
         setYearFactsColor("OrangeRed");
       }
     }

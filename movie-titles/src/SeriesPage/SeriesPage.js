@@ -10,15 +10,19 @@ import HeaderPage from "../Components/HeaderPage/HeaderPage";
 import ShowCard from "../Components/showCard/showCard";
 import Modal from "../Components/Modal/Modal";
 import Spinner from "../Components/Spinner/Spinner";
+import {
+  useLoadSpinner,
+  useLoadAndStoreShows,
+  usePaginationItemCount,
+  useDisplayItemsOnPagination,
+} from "../CustomHooks";
 import { createUniqueYearSet } from "../Util";
 
 export default function SeriesPage(props) {
   let context = useContext(ProductContext);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setLoading(false);
-  }, []);
+  // only show the spinner when the app first mounted
+  const [loading, setLoading] = useLoadSpinner(true);
 
   const [seriesDetails, setSeriesDetails] = useState({});
   const modalBtnElement = useRef(null);
@@ -31,13 +35,7 @@ export default function SeriesPage(props) {
   };
 
   // save all series in allSeries when app first loaded
-  const [allSeries, setAllSeries] = useState([]);
-  useEffect(() => {
-    setAllSeries(props.series);
-    setAllYearsForselect(createUniqueYearSet(props.series));
-  }, [props.series]);
-
-  /*filter movie bar starts here*/
+  const [allSeries, setAllSeries] = useLoadAndStoreShows(props.series);
 
   const filterSeriesByName = useCallback(() => {
     let name = context.searchString;
@@ -83,24 +81,17 @@ export default function SeriesPage(props) {
 
   // for all year selection loading component
   const [allYearsForSelect, setAllYearsForselect] = useState([]);
-
-  // add pagination to the page
-  const [allItems, setTotalItems] = useState(21);
-
-  const addMoreItems = () => {
-    let totalItems = allItems + 21;
-    if (totalItems > allSeries.length) {
-      totalItems = allSeries.length;
-    }
-    setTotalItems(totalItems);
-  };
-
-  const [displaySeries, setDisplaySeries] = useState([]);
-
   useEffect(() => {
-    let clone = allSeries.slice(0, allItems);
-    setDisplaySeries(clone);
-  }, [allSeries, allItems]);
+    setAllYearsForselect(createUniqueYearSet(props.series));
+  }, [props.series]);
+
+  //first page intialize to load 21 items, and increase by 21 when users click load more
+  const [allItems, addMoreItems] = usePaginationItemCount(21, allSeries);
+
+  const [displaySeries, setDisplaySeries] = useDisplayItemsOnPagination(
+    allSeries,
+    allItems
+  );
 
   // clear all search results when component unmount
   const clearAllSearch = useCallback(() => {
