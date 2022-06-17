@@ -2,9 +2,8 @@
 
 This app renders some movies and series.
 
-Access the live link [here](https://objectstorage.ap-singapore-1.oraclecloud.com/n/axmcit0hitw1/b/movie-listing/o/index.html#/).
-
-https://objectstorage.ap-singapore-1.oraclecloud.com/n/axmcit0hitw1/b/movie-listing-two/o/index.html#/
+- Deployed on Oracle Cloud Port 80, access the live link [here](http://138.2.69.2/#/).
+- DNS not deployed yet
 
 # Timeline
 
