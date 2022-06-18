@@ -2,23 +2,6 @@
     color: rgb(38, 167, 237);
 }
 
-.filterLabel {
-    font-size: 1.5rem;
-}
-
-.yearFilter {
-    height: 3rem;
-}
-.yearFilter > select {
-    height: 2.3rem;
-    border: none;
-    border-radius: 0.5rem;
-}
-
-.selectOptions {
-    color: grey;
-}
-
 /* .movieCard {
     position: relative;
 }
@@ -40,10 +23,13 @@
     /* body {
         background-color: lightblue;
     } */
-    .yearFilter {
+    /* .yearFilter {
         display: none;
-    }
+    } */
     .pageHeader {
+        font-size: 1rem;
+    }
+    .filterLabel {
         font-size: 1rem;
     }
 }

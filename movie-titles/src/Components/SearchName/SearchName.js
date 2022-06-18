@@ -14,7 +14,7 @@ export default function SearchName() {
         <input
           className="ms-2 searchInput"
           type="search"
-          placeholder="Search by name..."
+          placeholder="Search..."
           aria-label="Search"
           name="searchString"
           value={context.searchString}

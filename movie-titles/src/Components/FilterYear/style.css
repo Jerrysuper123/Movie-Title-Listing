@@ -1,0 +1,38 @@
+.filterLabel {
+    font-size: 1.5rem;
+}
+
+.dropdownBtn {
+    background-color: rgb(52, 52, 52);
+    color: white !important;
+    border: none;
+}
+
+.dropdownBg {
+    background-color: rgb(52, 52, 52);
+    color: white !important;
+    border: none;
+}
+
+.yearFilter {
+    height: 3rem;
+    min-width: 9rem;
+}
+.yearFilter > select {
+    height: 2.3rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.selectOptions {
+    color: grey;
+}
+
+/* @media only screen and (max-width: 780px) {
+    .dropdown {
+        display: block;
+    }
+    .yearFilter {
+        display: none;
+    }
+} */

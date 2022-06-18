@@ -2,7 +2,7 @@
     background-color: white;
     border-radius: 1rem;
     padding: 0px;
-    min-width: 14.5rem;
+    min-width: 12rem;
     max-height: 3rem;
 }
 
@@ -10,7 +10,7 @@
     background-color: white;
     color: rgb(12, 12, 12) !important;
     border: none;
-    width: 12rem;
+    width: 9rem;
     margin-top: 2px;
     margin-left: 5px;
     border-radius: 1rem;
