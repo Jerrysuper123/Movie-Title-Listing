@@ -12,6 +12,7 @@ export default function SearchName() {
     <span className="searchInputContainer d-flex align-items-center">
       <section className="mb-1">
         <input
+          data-testid="searchBarInput"
           className="ms-2 searchInput"
           type="search"
           placeholder="Search..."

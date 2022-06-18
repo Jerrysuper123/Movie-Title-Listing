@@ -55,7 +55,6 @@ function App() {
 
   return (
     <React.Fragment>
-      {/* <Spinner /> */}
       <ScrollUpBtn />
       <ProductContext.Provider value={context}>
         <Router>

@@ -22,7 +22,7 @@ export default function HomePage(props) {
     <React.Fragment>
       <section className="navIntro">
         <div className="container">
-          <span>Popular Titles</span>
+          <span data-testid="homeHeader">Popular Titles</span>
         </div>
       </section>
 

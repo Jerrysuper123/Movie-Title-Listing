@@ -9,7 +9,9 @@ export default function Footer() {
       <main className="container">
         <section className="footerHeader d-flex flex-column flex-md-row">
           <span className="pe-3 borderRight footerHome">
-            <Link to="/">Home</Link>
+            <Link to="/" data-testid="footerHome">
+              Home
+            </Link>
           </span>
           <span className="pe-3 ps-3 borderRight">Terms and Conditions</span>
           <span className="pe-3 ps-3 borderRight">Privacy Policy</span>

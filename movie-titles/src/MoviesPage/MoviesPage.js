@@ -153,6 +153,7 @@ export default function MoviesPage(props) {
           {displayMovies.length === allMovies.length ? null : (
             <div className="text-center mt-5">
               <input
+                test-id="moviesLoadMoreBtn"
                 type="submit"
                 className="mt-3 userBtn"
                 value="Load more"

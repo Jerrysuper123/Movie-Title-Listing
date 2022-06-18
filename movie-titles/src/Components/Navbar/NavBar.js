@@ -8,7 +8,9 @@ export default function NavBar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-lg">
         <div className="container navbarBgColor">
           <div className="navbar-brand">
-            <Link to="/">DEMO Streaming</Link>
+            <Link to="/" data-testid="header">
+              DEMO Streaming
+            </Link>
           </div>
           <button
             className="navbar-toggler"
@@ -26,7 +28,9 @@ export default function NavBar() {
             <ul className="navbar-nav ms-auto me-5">
               <li className="nav-item ms-3">
                 <span className="nav-link logInBtn" aria-current="page">
-                  <Link to="/series">Watch series</Link>
+                  <Link to="/series" data-testid="navToSeriesBtn">
+                    Watch series
+                  </Link>
                 </span>
               </li>
               <li className="nav-item ms-3">

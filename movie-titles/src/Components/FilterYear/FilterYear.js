@@ -13,6 +13,7 @@ export default function FilterYear(props) {
       <span className="yearFilter d-none d-md-block d-flex align-items-center">
         <label className="filterLabel me-2">Year: </label>
         <select
+          data-testid="filterSelect"
           className="selectOptions"
           value={context.searchYear}
           onChange={handleSelect}

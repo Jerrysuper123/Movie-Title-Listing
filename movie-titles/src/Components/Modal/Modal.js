@@ -98,6 +98,7 @@ export default function Modal(props) {
                   <p
                     className="yearFacts"
                     style={{ backgroundColor: yearFactColor }}
+                    data-testid="releaseYear"
                   >
                     {yearFacts}
                   </p>
