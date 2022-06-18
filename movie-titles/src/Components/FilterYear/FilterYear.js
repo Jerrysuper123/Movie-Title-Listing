@@ -8,18 +8,16 @@ export default function FilterYear(props) {
     context.setSearchYear(e.target.value);
   };
 
-  console.log(props.allYearsForSelect);
-
   return (
     <div>
       <span className="yearFilter d-none d-md-block d-flex align-items-center">
-        <label className="filterLabel me-2">year: </label>
+        <label className="filterLabel me-2">Year: </label>
         <select
           className="selectOptions"
           value={context.searchYear}
           onChange={handleSelect}
         >
-          <option value="all">All time</option>
+          <option value="all">all time</option>
 
           {props.allYearsForSelect.map((year) => {
             return (
@@ -39,21 +37,21 @@ export default function FilterYear(props) {
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          <i class="fa-solid fa-filter"></i>
+          <i className="fa-solid fa-filter"></i>
         </button>
         <ul
-          class="dropdown-menu dropdownBg"
+          className="dropdown-menu dropdownBg"
           aria-labelledby="dropdownMenuButton1"
         >
           <li>
             <span className="ps-2 yearFilter d-flex align-items-center">
-              <label className="filterLabel me-2">year: </label>
+              <label className="filterLabel me-2">Year: </label>
               <select
                 className="selectOptions border"
                 value={context.searchYear}
                 onChange={handleSelect}
               >
-                <option value="all">All time</option>
+                <option value="all">all time</option>
 
                 {props.allYearsForSelect.map((year) => {
                   return (
