@@ -1,51 +1,42 @@
 # Movie listing app
 
-This app renders some movies and series.
+This app renders some movies and series, completed within one week.
 
 - Deployed on Oracle Cloud Port 80, access the live link [here](http://138.2.69.2/#/).
-- DNS not deployed yet
+- DNS not deployed yet (might try Oralce Dynamic DNS if more time is given)
 
-# Timeline
+# Major Consideration
 
-1 week
+## Project planning
 
-# Consideration
-
-- First consider the component folder layout, so that we could reuse the components later
-- Mobile responsive - a movie streaming app should allows streaming on mobiles
-- add paginationt to improve loading speed
-- added search name and filter by name to improve user exp
-- added carousell to entice viewers with a call to action to sign up
-- expanded the usage of the navbar to include other pages, also fixed the navbar so that it follows users whereever it goes
-- added scrollup top buttons as the list gets longer for better user experience
+- Consider reusable components vs. pages
+- Given short timeline, should deploy the app in the middle of the week
 
 ## Tech stack
 
-- React - easy to build scaleable and dynamic website
-- Bootstrap 5 - used building components for fast deployment
-- Cypress - used for e2e testing
-- what about unit test?
+- React
+- Bootstrap 5 - get rid of the cross-browser compatibility issues
+- Fontawesome - for all the icons
+- Cypress - e2e
+- Jest - unit testing
 
-# Deployment
+## User experience consideration
 
-The deployment is done on Oracle cloud DB.
+- Mobile responsive - this app should allow app streaming on mobiles
+- Pagination - to improve loading speed
+- Added Search bar and filter year functions
+- Added carousell to entice viewers with a call to action to sign up
+- Expanded the usage of the navbar to include more navigation links
+- Added "scrollup to top" buttons
 
 # Areas to improve
 
-- Did not refactor movies and series page
-- Search by name and filter by year - does not return query by combined these parameters
-- Landing page carousel could display the top most watched movies, if given a server to track users' views
+- Movies and Series page can be refactored further; in fact, they can stand alone as a reusable component instead of page
+- Unit and E2E testing codes can be refactored further
 
 # Bonus points
 
-- done unit tests
-- used custom hooks
-- used statement tools - useContext; did not use Redux as useContext is easier to use for such a small app
-- the app is fully implemented using ES6 and functional components
-- used 3rd party libary Boostrap 5, did consider Material UI but there is no use case in this small app
-
-# If given more time
-
-- Use continuous integration tools such as Travis CI/Jenkins
-- DNS deployed
-- Create more custom hooks, test cusom hooks, unit test on all component
+- Completed 80% unit tests
+- Created custom hooks
+- Use useContext as state management tool (Redux a bit bulky for the small app)
+- Fully implemented using ES6 and functional components
