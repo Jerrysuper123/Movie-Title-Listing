@@ -138,7 +138,7 @@ export default function MoviesPage(props) {
                   key={index}
                   onClick={() => setMovie(m)}
                 >
-                  <div>
+                  <div className="movieCardsLoaded">
                     <ShowCard
                       imgUrl={m.images["Poster Art"].url}
                       title={m.title}
@@ -153,7 +153,7 @@ export default function MoviesPage(props) {
           {displayMovies.length === allMovies.length ? null : (
             <div className="text-center mt-5">
               <input
-                test-id="moviesLoadMoreBtn"
+                id="moviesLoadMoreBtn"
                 type="submit"
                 className="mt-3 userBtn"
                 value="Load more"

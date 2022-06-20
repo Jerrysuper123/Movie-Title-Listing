@@ -14,6 +14,7 @@ export default function FilterYear(props) {
         <label className="filterLabel me-2">Year: </label>
         <select
           data-testid="filterSelect"
+          id="webSelectOptions"
           className="selectOptions"
           value={context.searchYear}
           onChange={handleSelect}
