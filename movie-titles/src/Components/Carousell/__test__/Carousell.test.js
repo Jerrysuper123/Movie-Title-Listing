@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import Carousell from "./Carousell";
-import { sampleTestData } from "../../Util";
+import Carousell from "../Carousell";
+import { sampleTestData } from "../../../Util";
 
 beforeEach(() => {
   render(<Carousell movies={sampleTestData} />);

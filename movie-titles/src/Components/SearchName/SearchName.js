@@ -2,9 +2,13 @@ import React, { useContext } from "react";
 import ProductContext from "../../ProductContext";
 import "./style.css";
 
-export default function SearchName() {
+export default function SearchName(props) {
   let context = useContext(ProductContext);
   const handleSearchString = (e) => {
+    if (props.testSetSearchString) {
+      props.testSetSearchString(e.target.value);
+      return;
+    }
     context.setSearchString(e.target.value);
   };
 

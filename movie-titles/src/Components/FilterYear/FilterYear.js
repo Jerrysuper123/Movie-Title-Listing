@@ -5,6 +5,11 @@ import "./style.css";
 export default function FilterYear(props) {
   let context = useContext(ProductContext);
   const handleSelect = (e) => {
+    // below for testing purpose
+    if (props.testSetSearchYear) {
+      props.testSetSearchYear(e.target.value);
+      return;
+    }
     context.setSearchYear(e.target.value);
   };
 

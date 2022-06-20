@@ -26,7 +26,11 @@ export default function ShowCard(props) {
       />
       <p className="card-text mt-2 cardTitle">{props.title}</p>
 
-      <section className="synopsis px-2" style={style}>
+      <section
+        data-testid="hiddenSynopsis"
+        className="synopsis px-2"
+        style={style}
+      >
         <h6 className="pt-5">Synopsis:</h6>
         <p>{props.description.slice(0, 70)}...</p>
       </section>

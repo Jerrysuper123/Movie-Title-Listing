@@ -1,5 +1,5 @@
 // create unique array of all years available in data
-import React, { useState } from "react";
+
 const createUniqueYearSet = (array) => {
   let yearSet = new Set();
   for (let m of array) {

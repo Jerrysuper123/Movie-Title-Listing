@@ -18,7 +18,6 @@ test("renders App (both nav bar and footer correctly) ", () => {
 
 test("render series page correctly", () => {
   let component = render(<App />);
-  console.log(component);
   let seriesBtnOnNavBar = component.getByTestId("navToSeriesBtn");
   fireEvent.click(seriesBtnOnNavBar);
 

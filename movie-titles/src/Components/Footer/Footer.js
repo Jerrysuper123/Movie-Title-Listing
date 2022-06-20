@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <footer className="page-footer font-small blue p-4 text-center">
+    <footer
+      data-testid="footer"
+      className="page-footer font-small blue p-4 text-center"
+    >
       <main className="container">
         <section className="footerHeader d-flex flex-column flex-md-row">
           <span className="pe-3 borderRight footerHome">

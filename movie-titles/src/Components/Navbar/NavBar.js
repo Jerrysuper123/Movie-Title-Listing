@@ -45,7 +45,7 @@ export default function NavBar() {
               </li>
               <li className="nav-item ms-2">
                 <span className="nav-link trialBtn ps-3">
-                  <Link to="/signup"> Start your free trial</Link>
+                  <Link to="/signup">Start your free trial</Link>
                 </span>
               </li>
             </ul>
