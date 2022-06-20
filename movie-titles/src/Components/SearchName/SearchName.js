@@ -9,7 +9,10 @@ export default function SearchName() {
   };
 
   return (
-    <span className="searchInputContainer d-flex align-items-center">
+    <span
+      id="searchBar"
+      className="searchInputContainer d-flex align-items-center"
+    >
       <section className="mb-1">
         <input
           data-testid="searchBarInput"

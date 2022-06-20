@@ -38,7 +38,9 @@ export default function HomePage(props) {
             <section className="cta text-center p-5 animate__animated animate__bounce">
               <h1>Start your trial today!</h1>
               <Link to="/signup">
-                <button className="btn btn-danger">Start here</button>
+                <button className="btn btn-danger" id="ctaBtn">
+                  Start here
+                </button>
               </Link>
             </section>
           </section>

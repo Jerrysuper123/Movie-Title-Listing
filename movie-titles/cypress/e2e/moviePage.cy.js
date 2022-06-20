@@ -1,7 +1,8 @@
 describe("render movie page correctly", () => {
-  it("successfully rendered movie page", () => {
+  it("successfully rendered movie page with all components", () => {
     cy.visit("/movies");
     cy.contains("Popular Movies");
+    cy.get("#searchBar").should("be.visible");
   });
 
   it("click on each movies", () => {
@@ -10,8 +11,6 @@ describe("render movie page correctly", () => {
     cy.wait(1000);
     cy.get(".modal-dialog").should("be.visible");
 
-    // click close button
-    //unable to close the modal
     cy.wait(1000);
     cy.get("#btnCloseModal").click({ force: true });
   });

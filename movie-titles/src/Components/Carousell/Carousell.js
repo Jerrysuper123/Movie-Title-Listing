@@ -33,6 +33,7 @@ export default function Carousell(props) {
         <div className="carousel-item active">
           <section className="threeImage d-flex">
             <img
+              id="load1"
               src={props.movies[0].images["Poster Art"].url}
               className="d-block w-100"
               alt={props.movies[0].title}
@@ -43,6 +44,7 @@ export default function Carousell(props) {
               }}
             />
             <img
+              id="load2"
               src={props.movies[1].images["Poster Art"].url}
               className="d-block w-100 hideImg"
               alt={props.movies[1].title}
@@ -53,6 +55,7 @@ export default function Carousell(props) {
               }}
             />
             <img
+              id="load3"
               src={props.movies[2].images["Poster Art"].url}
               className="d-block w-100 hideImg"
               alt={props.movies[2].title}

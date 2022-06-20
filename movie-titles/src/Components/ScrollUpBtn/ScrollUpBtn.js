@@ -27,6 +27,7 @@ const ScrollUpBtn = () => {
     <>
       {showButton && (
         <section
+          id="scrollUp"
           onClick={scrollToTop}
           className="back-to-top d-flex align-items-center justify-content-center"
         >
