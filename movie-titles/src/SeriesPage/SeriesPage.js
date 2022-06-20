@@ -137,11 +137,13 @@ export default function SeriesPage(props) {
                     setSeries(m);
                   }}
                 >
-                  <ShowCard
-                    imgUrl={m.images["Poster Art"].url}
-                    title={m.title}
-                    description={m.description}
-                  />
+                  <div className="seriesCardsLoaded">
+                    <ShowCard
+                      imgUrl={m.images["Poster Art"].url}
+                      title={m.title}
+                      description={m.description}
+                    />
+                  </div>
                 </section>
               );
             })}
@@ -149,6 +151,7 @@ export default function SeriesPage(props) {
           {displaySeries.length === allSeries.length ? null : (
             <div className="text-center mt-5">
               <input
+                id="seriesLoadMoreBtn"
                 type="submit"
                 className="mt-3 userBtn"
                 value="Load more"

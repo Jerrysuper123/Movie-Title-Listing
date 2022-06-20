@@ -35,6 +35,8 @@ describe("render movie page correctly", () => {
   it(`click on "Load more" to load more shows`, () => {
     cy.get("#moviesLoadMoreBtn").click();
     cy.contains("Prisoners");
+    // after load more once, the button should be gone
+    cy.get("#moviesLoadMoreBtn").should("not.exist");
   });
 
   it(`click "scroll to the top" to scroll up to top of the window`, () => {
@@ -48,7 +50,7 @@ describe("render movie page correctly", () => {
     cy.get(".searchInput").clear();
   });
 
-  it(`Filter year "2010" , we should not to see only 2 movie being loaded`, () => {
+  it(`Filter year "2015" , we should not to see only 12 movie being loaded`, () => {
     cy.get("#webSelectOptions").select("2015", { force: true });
     cy.get(".movieCardsLoaded").find("div").should("have.length", 12);
     cy.get("#webSelectOptions").select("all time", { force: true });
