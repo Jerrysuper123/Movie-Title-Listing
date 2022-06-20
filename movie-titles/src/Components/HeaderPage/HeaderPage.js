@@ -8,7 +8,10 @@ export default function HeaderPage(props) {
       <div className="container d-flex justify-content-between align-items-center">
         <span className="pageHeader">Popular {props.title}</span>
         <SearchName />
-        <FilterYear allYearsForSelect={props.allYearsForSelect} />
+        <FilterYear
+          allYearsForSelect={props.allYearsForSelect}
+          testSetSearchYear={props.testSetSearchYear}
+        />
       </div>
     </section>
   );

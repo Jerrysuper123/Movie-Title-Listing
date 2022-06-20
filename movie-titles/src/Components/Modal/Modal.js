@@ -29,6 +29,7 @@ export default function Modal(props) {
         if (response.status === 200) {
           setYearFactsColor("RoyalBlue");
           setYearFacts(response.data);
+          console.log(response);
         }
 
         // else if (response.status === 500 && response.status === 503) {

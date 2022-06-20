@@ -27,22 +27,17 @@ describe(`render a movie with title "Wolf Creek"`, () => {
     );
   });
 
-  it(`title to be "Wolf Creek`, () => {
-    // img alt text is the movie or series title
-
+  it(`card title to be "Wolf Creek`, () => {
     let showCardTitle = screen.getByText("Wolf Creek");
     expect(showCardTitle).toBeInTheDocument();
   });
 
   it(`hidden synopsis should not appear on the card`, () => {
-    // img alt text is the movie or series title
-    // let showCardTitle = screen.getByText("Wolf Creek");
-    // fireEvent.mouseEnter(showCardTitle)
     let hiddenEl = screen.getByTestId("hiddenSynopsis");
     expect(hiddenEl).not.toBeVisible();
   });
 
-  it(`user hover all, hidden synopsis should appear on the card`, () => {
+  it(`when hover on the card, hidden synopsis should appear on the card`, () => {
     // img alt text is the movie or series title
     let showCardTitle = screen.getByText("Wolf Creek");
     fireEvent.mouseEnter(showCardTitle);
