@@ -49,6 +49,7 @@ export default function FilterYear(props) {
             <span className="ps-2 yearFilter d-flex align-items-center">
               <label className="filterLabel me-2">Year: </label>
               <select
+                id="mobileSelectOptions"
                 className="selectOptions border"
                 value={context.searchYear}
                 onChange={handleSelect}

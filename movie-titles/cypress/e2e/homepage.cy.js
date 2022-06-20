@@ -108,4 +108,18 @@ describe("renders the home page", () => {
     cy.get("#scrollUp").click();
     cy.window().its("scrollY").should("equal", 0);
   });
+
+  // check mobile responsiveness
+  it(`test mobile responsiveness at iphone 12 size`, () => {
+    cy.viewport(390, 844);
+    cy.contains("Watch series").should("not.be.visible");
+    cy.contains("Watch movies").should("not.be.visible");
+    cy.contains("Log in").should("not.be.visible");
+    cy.contains("Start your free trial").should("not.be.visible");
+    cy.get(".navbar-toggler").click();
+    cy.contains("Watch series");
+    cy.contains("Watch series").click();
+    cy.contains("DEMO Streaming").click();
+    cy.get(".navbar-toggler").click();
+  });
 });

@@ -55,4 +55,23 @@ describe("render movie page correctly", () => {
     cy.get(".movieCardsLoaded").find("div").should("have.length", 12);
     cy.get("#webSelectOptions").select("all time", { force: true });
   });
+
+  // check mobile responsiveness
+  it(`test mobile responsiveness at iphone 12 size`, () => {
+    cy.viewport(390, 844);
+    cy.contains("Watch series").should("not.be.visible");
+    cy.contains("Watch movies").should("not.be.visible");
+    cy.contains("Log in").should("not.be.visible");
+    cy.contains("Start your free trial").should("not.be.visible");
+    cy.scrollTo("top");
+    cy.get(".dropdownBtn").click({ force: true });
+    // select 2015 should have 12 movies
+    cy.get("#mobileSelectOptions").select("2015", { force: true });
+    cy.get(".movieCardsLoaded").find("div").should("have.length", 12);
+    cy.get("#mobileSelectOptions").select("all time", { force: true });
+    cy.scrollTo("bottom");
+    //test scroll up btn
+    cy.get("#scrollUp").click();
+    cy.window().its("scrollY").should("equal", 0);
+  });
 });

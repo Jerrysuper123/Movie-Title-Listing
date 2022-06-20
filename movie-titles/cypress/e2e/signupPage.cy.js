@@ -13,8 +13,7 @@ describe("renders signup page", () => {
     cy.url().should("include", "/signup");
     cy.contains("Sign up today!");
     cy.get(".adminForm").should("be.visible");
-    // cy.get("#webSelectOptions").should("be.visible");
-    // cy.contains("Load more");
+
     cy.contains("Sign in").click();
     cy.contains("Sign up").click();
 
